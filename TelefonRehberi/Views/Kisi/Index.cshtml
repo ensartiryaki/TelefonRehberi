@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DataLayer.Entities.Kisi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kişi Listesi</h1>
+
+<p>
+    <a asp-action="Create">Yeni Kişi Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KisiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TCKimlik)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCKimlik)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new {  id=item.KisiId }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.KisiId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.KisiId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
